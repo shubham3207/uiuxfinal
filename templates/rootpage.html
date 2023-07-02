@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- Add Font Awesome for search icon -->
+    <link rel="stylesheet" href="{% static 'css/root.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blogsingle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+   
+    <style>
+        html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0%;
+        }
+    
+        .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 90vh;
+        }
+    
+        .footer-bs {
+        background-color: #000000;
+        padding: 80px 60px;
+        color: rgba(255, 255, 255, 1.00);
+        margin-top: auto;
+        border-bottom-right-radius: 6px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 6px;
+        
+        }
+    </style>
+</head>
+<body>
+  
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-0 py-3">
+        <div class="container-xl">
+          <!-- Logo -->
+          <a class="navbar-brand" href="#">
+            <img src="{% static '/img/logo1.png' %}" class="h-8" alt="...">
+          </a>
+          <!-- Navbar toggle -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Collapse -->
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <!-- Nav -->
+            <ul class="navbar-nav mx-lg-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'home' %}" aria-current="page">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'category_view' category_name='Football' %}">Football</a>
+                
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'category_view' category_name='Cricket' %}">Cricket</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'category_view' category_name='Basketball' %}">Basketball</a>
+              </li>
+            </ul>
+      
+            <!-- Search Box -->
+            <div class="srch_wrpr">
+              <input type="checkbox" name="" class="checkbox">
+              <div class="srch_sb_cnt">
+                  <form action="{% url 'search' %}" method="GET">
+                      <input type="text" name="search_query" class="sech_txt_inpt" placeholder="Type to search..." value="{{ search_query }}">
+                      <button type="submit" class="srch_btn">
+                          <i class="fa fa-search" aria-hidden="true"></i>
+                      </button>
+                  </form>
+              </div>
+          </div>
+      
+            <!-- Right navigation -->
+            <ul class="navbar-nav ms-lg-4">
+              <li class="nav-item">
+                <a href ="/login "class="nav-link" href="#">Sign in</a>
+              </li>
+            </ul>
+      
+            <!-- Action -->
+            <div class="d-flex align-items-lg-center mt-3 mt-lg-0">
+              <a href="/register" class="btn btn-sm btn-primary w-full w-lg-auto">Register</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+
+
+
+
+
+<div class="container"> 
+    <section style="height:70px;"></section>
+
+    {% block content %}
+
+
+
+    {% endblock %}
+    
+    <!----------- Footer ------------>
+    <footer class="footer-bs" >
+        <div class="row" >
+            <div class="col-md-3 footer-brand animated fadeInLeft " >
+                <img src="{% static 'img/logo1.png' %}" class="h-8" alt="..." style="margin-top: 60px; margin-left: 80px;">
+            </div>
+            <div class="col-md-4 footer-nav animated fadeInUp" style="margin-left:80px ; padding-left: 200px; ">
+                <h4>Menu —</h4>
+                
+                <div class="">
+                    <ul class="list">
+                        <li><a href='/about'>About Us</a></li>
+                        <li><a href='/contact'>Contacts</a></li>
+                        <li><a href="#">Terms & Condition</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2 footer-social animated fadeInDown" style="margin-left:80px ;padding-left: 200px;">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">RSS</a></li>
+                </ul>
+            </div>
+            
+        </div>
+    </footer>
+    
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-- Add jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script> <!-- Add Popper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.0/js/bootstrap.min.js"></script> <!-- Add Bootstrap JavaScript -->
+
+</body>
+
+</html>
