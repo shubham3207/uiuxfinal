@@ -6,7 +6,7 @@
 body{
     display: flex;
     height: 100vh;
-    background-color: #343a40;
+    background-color: white;
 }
 #container{
     margin:auto;

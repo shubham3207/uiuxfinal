@@ -7,3 +7,4 @@ from .models import *
 admin.site.register(Blog)
 admin.site.register(Contact)
 admin.site.register(Category)
+admin.site.register(Customer)
